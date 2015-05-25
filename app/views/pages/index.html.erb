@@ -1,0 +1,20 @@
+<h1>Done or Donate</h1>
+
+<%= form_for(@task) do |f| %>
+
+  <div class="field">
+    <%= f.label "I want to..." %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label "by..." %><br>
+    <%= f.datetime_field :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label "Or I will donate" %><br>
+    <%= f.number_field :bounty %>
+  </div>
+  <div class="actions">
+    <%= f.submit url: tasks_path, method: :post %>
+  </div>
+<% end %>
