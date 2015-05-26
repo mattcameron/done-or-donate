@@ -14,3 +14,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "pages";
+
+body {
+	padding-top: 50px;
+}

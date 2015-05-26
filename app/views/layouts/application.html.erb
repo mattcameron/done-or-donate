@@ -10,13 +10,6 @@
 
 	<%= render 'shared/navbar' %>
 
-<% if logged_in? %>
-	<p>Welcome <%= current_user.name %></p>
-	<%= form_tag '/logout', method: :delete do %>
-  	<button>Logout</button>
-  <% end %>
-<% end %>
-
 <%= yield %>
 
 </body>

@@ -1,30 +1,23 @@
-<div id="fullpage">
+<section id="home-section">
+  <div class="container">
 
-  <div class="section">
-  <h1>Done or Donate</h1>
+    <%= form_for(@task) do |f| %>
 
-  <%= form_for(@task) do |f| %>
-
-    <div class="field">
-      <%= f.label "I want to..." %><br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label "by..." %><br>
-      <%= f.datetime_field :due_date %>
-    </div>
-    <div class="field">
-      <%= f.label "Or I will donate" %><br>
-      <%= f.number_field :bounty %>
-    </div>
-    <div class="actions">
-      <%= f.submit url: tasks_path, method: :post %>
-    </div>
-  <% end %>
-
+      <div class="form-group">
+        <%= f.label "I want to..." %><br>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "by..." %><br>
+        <%= f.datetime_field :due_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "Or I will donate" %><br>
+        <%= f.number_field :bounty, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit url: tasks_path, method: :post, class: "btn btn-default" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="section">
-    <h2>Second page</h2>
-  </div>
-</div>
+</section>
