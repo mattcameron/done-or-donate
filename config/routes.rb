@@ -9,8 +9,13 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  get '/signup' => 'pages#signup', as: :signup
-  get '/login' => 'users#new', as: :login
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
+
+  get '/login' => 'pages#new'
+  post '/login' => 'pages#create'
+
+  delete '/logout' => 'pages#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

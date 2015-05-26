@@ -1,0 +1,12 @@
+<ul>
+	<li><a href="/">Home</a></li>
+	<li><a href="#">About</a></li>
+	<li><a href="#">How It Works</a></li>
+	<li>
+		<% if logged_in? %>
+			<%= link_to "Logout", logout_path, method: :delete %>
+		<% else %>
+			<%= link_to "Login", login_path %>
+		<% end %>
+	</li>
+</ul>
