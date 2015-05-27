@@ -1,23 +1,25 @@
 <section id="home-section">
   <div class="container">
 
-    <%= form_for(@task) do |f| %>
+    <div id="homepage-create-task">
+      <%= form_for(@task) do |f| %>
 
-      <div class="form-group">
-        <%= f.label "I want to..." %><br>
-        <%= f.text_field :title, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label "by..." %><br>
-        <%= f.datetime_field :due_date, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label "Or I will donate" %><br>
-        <%= f.number_field :bounty, class: "form-control" %>
-      </div>
-      <div class="actions">
-        <%= f.submit url: tasks_path, method: :post, class: "btn btn-default" %>
-      </div>
-    <% end %>
+        <div class="form-group-lg set-task">
+          <%= f.label "I am going to" %><br>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group set-deadline">
+          <%= f.label "by" %><br>
+          <%= f.datetime_field :due_date, class: "form-control" %>
+        </div>
+        <div class="form-group set-bounty">
+          <%= f.label "Or I will donate" %><br>
+          <%= f.number_field :bounty, class: "form-control" %>
+        </div>
+        <div class="actions create-task-btn">
+          <%= f.submit url: tasks_path, method: :post, class: "btn btn-default" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>

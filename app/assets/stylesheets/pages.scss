@@ -2,6 +2,35 @@ $blue: rgba(95, 122, 238, 1);
 
 #home-section {
 	background-color: $blue;
-	min-height: 70vh;
+	min-height: 30vh;
 	padding: 50px 0;
+}
+
+.set-task {
+	label {
+	font-size: 200%;
+	}
+}
+
+.set-deadline {
+	display: none;
+}
+
+.set-bounty {
+	display: none;
+}
+
+.create-task-btn {
+	display: none;
+}
+
+#homepage-create-task {
+	input[type=text], input[type=number] {
+		background-color: transparent;
+		border: none;
+		border-radius: 0;
+		border-bottom: 1px solid white;
+		box-shadow: none;
+		color: white;
+	}
 }
