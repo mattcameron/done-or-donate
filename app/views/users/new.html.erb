@@ -1,5 +1,17 @@
-<h1>New User</h1>
+<div class="container">
+	<div class="create-tabs row">
+		<div role="tabpanel" class="col-xs-6 col-xs-offset-3">
 
-<%= render 'form' %>
+			<ul class="nav nav-tabs nav-justified" role="tablist">
+			  <li class="active"><a href="#">Create Account</a></li>
+			  <li><a href="#">Add Credit Card</a></li>
+			  <li><a href="#">Create Task</a></li>
+			</ul>
 
-<%= link_to 'Back', users_path %>
+      <div class="tab-content" id="create-account">
+				<%= render 'form' %>
+      </div>
+
+	  </div>
+	</div>
+</div>

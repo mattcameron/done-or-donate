@@ -1,32 +1,32 @@
 <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Task</th>
-        <th>Time Left</th>
-        <th>Bounty</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if @tasks.count >= 1 %>
-        <% @tasks.each do |task| %>
-          <tr>
-            <td><%= task.title %></td>
-            <td><%= task.due_date %></td>
-            <td>$<%= task.bounty %></td>
-            <td><button class="btn btn-default">Done!</button></td>
-          </tr>
-        <% end %>
-      <% else %>
-        <tr>
-          <td colspan="4">You have no tasks yet!</td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <div id="add-new-task" class="text-center">
-    <%= link_to new_task_path do %>
-      <button type="button" class="btn btn-info btn-lg">Add a new task</button>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Time Left</th>
+      <th>Bounty</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @tasks.count >= 1 %>
+    <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.title %></td>
+      <td><%= task.due_date %></td>
+      <td>$<%= task.bounty %></td>
+      <td><button class="btn btn-default">Done!</button></td>
+    </tr>
     <% end %>
-  </div>
+    <% else %>
+    <tr>
+      <td colspan="4">You have no tasks yet!</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div id="add-new-task" class="text-center">
+  <%= link_to new_task_path do %>
+  <button type="button" class="btn btn-info btn-lg">Add a new task</button>
+  <% end %>
+</div>
