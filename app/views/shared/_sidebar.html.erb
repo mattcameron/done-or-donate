@@ -6,7 +6,9 @@
 		<%= link_to user_path(@user) do %>
 			<li>Overview</li></a>
 		<% end %>
-		<a href="#"><li>Tasks</li></a>
+		<%= link_to tasks_path do %>
+			<li>Tasks</li>
+		<% end %>
 		<a href="#"><li>Charities</li></a>
 		<a href="#"><li>Settings</li></a>
 	</ul>
