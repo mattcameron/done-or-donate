@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 		@task.user = current_user if logged_in?
 
       if @task.save && logged_in?
-        	redirect_to user_path, notice: 'Task was successfully created.'
+        	redirect_to user_path(current_user), notice: 'Task was successfully created.'
       elsif @task.save
       		redirect_to signup_path, notice: "Almost there, sign up to save your task"
       else

@@ -5,7 +5,7 @@
 		height: 150px;
 		width: 150px;
 		border-radius: 75px;
-		background-color: rgb(184, 208, 239);
+		background-color: #d9edf7;
 		margin: 0 auto;
 		line-height: 150px;
 		font-size: 4em;
@@ -18,6 +18,9 @@
 
 #open-tasks {
 	clear: both;
+}
+
+.task-list {
 	table {
 		tr {
 			td {
