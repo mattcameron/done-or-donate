@@ -1,0 +1,29 @@
+#summary {
+	margin-top: 60px;
+	margin-bottom: 60px;
+	.overview-circle {
+		height: 150px;
+		width: 150px;
+		border-radius: 75px;
+		background-color: rgb(184, 208, 239);
+		margin: 0 auto;
+		line-height: 150px;
+		font-size: 4em;
+	}
+}
+
+.account-page {
+	display: inline-block;
+}
+
+#open-tasks {
+	clear: both;
+	table {
+		tr {
+			td {
+				line-height: 50px;
+			}
+		}
+	}
+}
+

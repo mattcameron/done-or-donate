@@ -16,7 +16,14 @@
 @import "bootstrap";
 
 @import "pages";
+@import "sidebar";
+@import "account";
 
 body {
 	padding-top: 50px;
 }
+
+.navbar-default .navbar-brand {
+	color: #24405C;
+}
+

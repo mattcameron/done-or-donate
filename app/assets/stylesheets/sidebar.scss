@@ -1,0 +1,39 @@
+#sidebar {
+	display: inline-block;
+	background-color: #24405C;
+	height: 100vh;
+	padding: 0;
+	width: 16.66666667%;
+	min-width: 160px;
+	float:left;
+
+	p {
+		color: rgb(146, 244, 162);
+		font-weight: bold;
+		padding-top: 40px;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	ul {
+		padding: 0;
+		a {
+			color: rgb(232, 228, 255);
+			line-height: 50px;
+			text-decoration: none;
+			&:hover {
+				color: black;
+			}
+
+			li {
+				list-style: none;
+				height: 50px;
+				padding-left: 40px;
+
+				&:hover {
+					background-color: #A5C9ED;
+				}
+			}
+		}
+	}
+}
