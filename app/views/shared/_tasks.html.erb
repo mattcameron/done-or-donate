@@ -10,13 +10,13 @@
   <tbody>
     <% if @tasks.count >= 1 %>
     <% @tasks.each do |task| %>
-    <tr <%= "class=completed" if task.completed %> >
+    <tr class="<%= task.done_or_donated %>">
       <td><%= task.title %></td>
       <td><%= task.time_left %></td>
       <td>$<%= task.bounty %></td>
       <td>
         <% if task.completed %>
-          <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Done
+          <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> <%= task.done_or_donated.capitalize %>
         <% else %>
         <button class="btn btn-default"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Mark as Done!</button>
         <% end %>
