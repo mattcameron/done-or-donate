@@ -4,7 +4,7 @@
     <div id="homepage-create-task">
       <%= form_for @task do |f| %>
 
-        <div class="form-group-lg set-task">
+        <div class="form-group set-task">
           <%= f.label "I am going to" %><br>
           <%= f.text_field :title, class: "form-control" %>
         </div>
@@ -15,11 +15,11 @@
         <div class="form-group set-bounty">
           <%= f.label "Or I will donate" %><br>
           <select name="task[bounty]" id="task_bounty" class="form-control">
-            <option value="10">10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-            <option value="1000">1000</option>
+            <option value="10">$10</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="100">$100</option>
+            <option value="1000">$1000</option>
           </select>
         </div>
 
