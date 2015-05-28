@@ -48,21 +48,22 @@ class UsersController < ApplicationController
   def convert_guest_to_user
     @guest = User.find(params[:id])
     if @guest.update(user_params)
-        redirect_to "/users/#{@guest.id}/add-credit-card"
-      else
-        render :new
-      end
+      session[:user_id] = @guest.id
+      redirect_to "/users/#{@guest.id}/add-credit-card"
+    else
+      render :new
+    end
   end
 
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-      if @user.update(user_params)
-        redirect_to @user, notice: 'User was successfully updated.'
-      else
-        render :edit
-      end
+    if @user.update(user_params)
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   # DELETE /users/1

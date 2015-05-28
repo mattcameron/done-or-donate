@@ -28,7 +28,7 @@ class TasksController < ApplicationController
 		end
 
     if @task.save && logged_in?
-      	redirect_to user_path(current_user), notice: 'Task was successfully created.'
+      	redirect_to user_path(current_user.id), notice: 'Task was successfully created.'
     elsif @task.save
     		redirect_to "/signup/#{guest.id}", notice: "Almost there, sign up to save your task"
     else
@@ -37,12 +37,13 @@ class TasksController < ApplicationController
 	end
 
 	def confirm_task
-
+		@user = User.find(params[:id])
+		@task = @user.tasks.first
 	end
 
 	def update
 	    if @task.update(task_params)
-	      redirect_to @task, notice: 'Task was successfully updated.'
+	      redirect_to current_user, notice: "Woohoo!! It's time to get cracking!"
 	    else
 	      render :edit
 	    end
