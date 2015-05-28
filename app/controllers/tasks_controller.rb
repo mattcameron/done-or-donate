@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	before_action :set_task, only: [:show, :edit, :update, :destroy, :confirm_task, :completed]
+	before_action :set_task, only: [:show, :edit, :update, :destroy, :completed]
 
 	def index
 		@user = current_user
@@ -39,6 +39,7 @@ class TasksController < ApplicationController
 	end
 
 	def confirm_task
+		@user = current_user
 		@task = @user.tasks.first
 	end
 

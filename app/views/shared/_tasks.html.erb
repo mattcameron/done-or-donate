@@ -14,7 +14,7 @@
       <td><%= task.title %></td>
       <td><%= task.time_left %></td>
       <td>$<%= task.bounty %></td>
-      <td>
+      <td class="pull-right but-not-too-far">
         <% if task.completed %>
           <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> <%= task.done_or_donated.capitalize %>
         <% else %>

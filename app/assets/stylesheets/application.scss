@@ -21,6 +21,10 @@
 @import "account";
 @import "users";
 
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
 body {
 	padding-top: 50px;
 }
@@ -41,3 +45,12 @@ body {
 			td {
 				line-height: 50px
 			}
+
+label {
+	font-weight: inherit;
+}
+
+.form-control {
+	height: 50px;
+	font-size: 20px;
+}

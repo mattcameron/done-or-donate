@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @tasks = @user.tasks
+    @tasks = @user.tasks.order(:due_date)
   end
 
   # GET /users/new
