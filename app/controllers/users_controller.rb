@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :add_credit_card]
 
   # GET /users
   # GET /users.json
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    @user = User.new
+    @guest = User.find(params[:id])
   end
 
   # GET /users/1/edit
@@ -29,12 +29,31 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to '/users/#{params[:id]}/add-credit-card'
     else
       render :new
     end
 
   end
+
+  def add_credit_card
+  end
+
+  def save_credit_card
+    #post to payment processor
+    #save the credit card token to the user
+    redirect_to '/users/#{params[:id]/new_task'
+  end
+
+  def convert_guest_to_user
+    @guest = User.find(params[:id])
+    if @guest.update(user_params)
+        redirect_to "/users/#{@guest.id}/add-credit-card"
+      else
+        render :new
+      end
+  end
+
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json

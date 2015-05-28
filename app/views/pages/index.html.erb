@@ -2,7 +2,7 @@
   <div class="container">
 
     <div id="homepage-create-task">
-      <%= form_for(@task) do |f| %>
+      <%= form_for @task do |f| %>
 
         <div class="form-group-lg set-task">
           <%= f.label "I am going to" %><br>
@@ -16,8 +16,9 @@
           <%= f.label "Or I will donate" %><br>
           <%= f.number_field :bounty, class: "form-control" %>
         </div>
+
         <div class="actions create-task-btn">
-          <%= f.submit url: tasks_path, method: :post, class: "btn btn-default" %>
+          <%= f.submit class: "btn btn-default" %>
         </div>
       <% end %>
     </div>

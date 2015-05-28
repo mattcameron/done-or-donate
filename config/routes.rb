@@ -9,8 +9,14 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  get '/signup' => 'users#new'
+  get '/signup/:id' => 'users#new'
   post '/signup' => 'users#create'
+
+  put '/convert-guest/:id' => 'users#convert_guest_to_user'
+
+  get 'users/:id/add-credit-card' => 'users#add_credit_card'
+  post 'users/:id/add-credit-card' => 'users#save_credit_card'
+
 
   get '/login' => 'pages#new'
   post '/login' => 'pages#create'

@@ -1,10 +1,10 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
+<%= form_for @guest, url: "/convert-guest/#{params[:id]}", method: :put do |f| %>
+  <% if @guest.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |message| %>
+      <% @guest.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,18 +13,18 @@
 
   <div class="form-group-lg">
     <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name, value: "", class: "form-control" %>
   </div>
   <div class="form-group-lg">
     <%= f.label :email %><br>
-    <%= f.email_field :email, class: "form-control" %>
+    <%= f.email_field :email, value: "", class: "form-control" %>
   </div>
   <div class="form-group-lg">
     <%= f.label :password %><br>
-    <%= f.password_field :password, class: "form-control" %>
+    <%= f.password_field :password, value: "", class: "form-control" %>
   </div>
 
   <div class="actions create-user-btn">
-    <%= f.submit class: "btn btn-default" %>
+    <%= f.submit "Create Account", class: "btn btn-default" %>
   </div>
 <% end %>

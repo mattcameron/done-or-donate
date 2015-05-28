@@ -18,15 +18,26 @@ class TasksController < ApplicationController
 
 	def create
     @task = Task.new(task_params)
-		@task.user = current_user if logged_in?
+    if logged_in?
+			@task.user_id = current_user.id
+		else
+			# create a guest user
+			guest = User.create name: "guest", email: "guest", password: "guest"
+			# assign the task to the guest
+			@task.user_id = guest.id
+		end
 
-      if @task.save && logged_in?
-        	redirect_to user_path(current_user), notice: 'Task was successfully created.'
-      elsif @task.save
-      		redirect_to signup_path, notice: "Almost there, sign up to save your task"
-      else
-				render :new
-      end
+    if @task.save && logged_in?
+      	redirect_to user_path(current_user), notice: 'Task was successfully created.'
+    elsif @task.save
+    		redirect_to "/signup/#{guest.id}", notice: "Almost there, sign up to save your task"
+    else
+			render :new
+    end
+	end
+
+	def temp_task
+
 	end
 
 	def update

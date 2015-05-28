@@ -1,5 +1,12 @@
 .create-tabs {
 	margin-top: 50px;
+	ul
+		li
+			a {
+				&:hover {
+					cursor: default;
+				}
+			}
 }
 
 .tab-content {
@@ -13,4 +20,16 @@
 .create-user-btn {
 	text-align: right;
 	margin: 20px 10px;
+}
+
+.cc-exp-ccv {
+	label {
+		margin-left: 20px;
+		margin-right: 20px;
+		vertical-align: middle;
+	}
+	input[type=text] {
+		max-width: 100px;
+		margin-top: 20px;
+	}
 }

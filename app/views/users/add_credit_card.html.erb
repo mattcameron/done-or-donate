@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="create-tabs row">
+		<div role="tabpanel" class="col-xs-6 col-xs-offset-3">
+
+			<ul class="nav nav-tabs nav-justified" role="tablist">
+				<li><a href="#">Create Account</a></li>
+				<li class="active"><a href="#">Add Credit Card</a></li>
+				<li><a href="#">Create Task</a></li>
+			</ul>
+
+			<div class="tab-content" id="create-account">
+				<%= form_tag do %>
+
+				<div class="form-group-lg">
+						<%= label_tag "Name on the card" %>
+					<%= text_field_tag :cc_name, nil, class: "form-control" %>
+				</div>
+
+				<div class="form-group-lg">
+					<%= label_tag "Credit Card Number" %>
+					<%= text_field_tag :cc_number, nil, class: "form-control" %>
+				</div>
+
+				<div class="form-group-lg form-inline cc-exp-ccv">
+					<%= label_tag "Expiry Date" %>
+					<%= text_field_tag :cc_expiry, nil, class: "form-control" %>
+
+				<div class="cc-exp-ccv pull-right">
+					<%= label_tag(:aapl, "CCV") %>
+					<%= text_field_tag :cc_ccv, nil, class: "form-control" %>
+				</div>
+			</div>
+
+				<div class="actions create-user-btn">
+					<%= submit_tag nil, class: "btn btn-default" %>
+				</div>
+				<% end %>
+			</div>
+
+		</div>
+	</div>
+</div>
