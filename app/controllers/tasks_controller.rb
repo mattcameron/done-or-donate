@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     end
 	end
 
-	def temp_task
+	def confirm_task
 
 	end
 

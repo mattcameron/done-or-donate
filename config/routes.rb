@@ -14,9 +14,10 @@ Rails.application.routes.draw do
 
   put '/convert-guest/:id' => 'users#convert_guest_to_user'
 
-  get 'users/:id/add-credit-card' => 'users#add_credit_card'
-  post 'users/:id/add-credit-card' => 'users#save_credit_card'
+  get '/users/:id/add-credit-card' => 'users#add_credit_card'
+  post '/users/:id/save-credit-card' => 'users#save_credit_card'
 
+  get '/users/:id/confirm-task' => 'tasks#confirm_task'
 
   get '/login' => 'pages#new'
   post '/login' => 'pages#create'

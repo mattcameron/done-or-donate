@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :add_credit_card]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :save_credit_card]
 
   # GET /users
   # GET /users.json
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def save_credit_card
     #post to payment processor
     #save the credit card token to the user
-    redirect_to '/users/#{params[:id]/new_task'
+    redirect_to "/users/#{@user.id}/confirm-task"
   end
 
   def convert_guest_to_user
