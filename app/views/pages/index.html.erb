@@ -5,7 +5,7 @@
 
       <div id="introduction" class="col-xs-6">
         <h1>Doing stuff is hard</h1>
-        <h3>Sometimes you just need a little <em>motivation</em>.</h3>
+        <h3>Sometimes you just need a little motivation.</h3>
 
         <%= image_tag("how-it-works.png") %>
       </div>
@@ -18,11 +18,11 @@
           <%= f.text_field :title, class: "form-control" %>
         </div>
         <div class="form-group set-deadline date-picker-container">
-          <%= f.label "by" %><br>
+          <%= f.label "by:" %><br>
           <%= f.datetime_field :due_date, class: "form-control datetimepicker" %>
         </div>
         <div class="form-group set-bounty">
-          <%= f.label "Or I will donate" %><br>
+          <%= f.label "Or I will donate:" %><br>
           <select name="task[bounty]" id="task_bounty" class="form-control">
             <option value="10">$10</option>
             <option value="25">$25</option>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="actions create-task-btn">
-          <%= f.submit class: "btn btn-default" %>
+          <%= f.submit class: "btn btn-info pull-right" %>
         </div>
         <% end %>
       </div>
@@ -42,16 +42,43 @@
   </div>
 </section>
 
+<section id="how-it-works">
+  <h2>Put your money where your mouth is</h2>
+</section>
 
 
-<section id="banner">
-  <header>
-    <h2>Put your money where your mouth is</h2>
-  </header>
-  <p>A brand new site template designed by <a href="http://n33.co">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>.<br>
-    It’s fully responsive, built on <strong>skel</strong>, and of course entirely free<br>
-    under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
-    <footer>
-      <a href="#first" class="button style2 scrolly">Act on this message</a>
-    </footer>
-  </section>
+<section id="stats-section">
+  <div class="container">
+
+    <div id="stats" class="row">
+      <div class="col-xs-3 stats-block">
+        <div class="glyphicon glyphicon-star-empty" aria-hidden="true"></div>
+        <div class="stats-number">45</div>
+        <div class="stats-caption">Tasks</div>
+      </div>
+
+      <div class="col-xs-3 stats-block">
+        <div class="glyphicon glyphicon-ok-circle" aria-hidden="true"></div>
+        <div class="stats-number">37</div>
+        <div class="stats-caption">Completed successfully</div>
+      </div>
+
+      <div class="col-xs-3 stats-block">
+        <div class="glyphicon glyphicon-usd" aria-hidden="true"></div>
+        <div class="stats-number">$5,250</div>
+        <div class="stats-caption">Donations</div>
+      </div>
+
+      <div class="col-xs-3 stats-block">
+        <div class="glyphicon glyphicon-heart-empty" aria-hidden="true"></div>
+        <div class="stats-number">732</div>
+        <div class="stats-caption">Happy cats</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
