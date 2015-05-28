@@ -33,8 +33,15 @@ class UsersController < ApplicationController
     else
       render :new
     end
-
   end
+
+  def account
+    @user = current_user
+    @tasks = @user.tasks
+    render :show
+  end
+
+
 
   def add_credit_card
   end

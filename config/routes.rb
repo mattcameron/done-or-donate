@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'pages#destroy'
 
+  get '/account' => 'users#account'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
