@@ -17,7 +17,9 @@ class TasksController < ApplicationController
 	end
 
 	def create
-    @task = Task.new(task_params)
+		edited_params = task_params
+		edited_params[:due_date] = Date.strptime(edited_params[:due_date], '%m/%d/%Y %I:%M %p')
+    @task = Task.new(edited_params)
     if logged_in?
 			@task.user_id = current_user.id
 		else

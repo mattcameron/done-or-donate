@@ -29,6 +29,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Bootstrap
 gem 'bootstrap-sass', '~> 3.3.4'
 
+# Datepicker
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
