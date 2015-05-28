@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	before_action :set_task, only: [:show, :edit, :update, :destroy]
+	before_action :set_task, only: [:show, :edit, :update, :destroy, :confirm_task, :completed]
 
 	def index
 		@user = current_user
@@ -39,7 +39,6 @@ class TasksController < ApplicationController
 	end
 
 	def confirm_task
-		@user = User.find(params[:id])
 		@task = @user.tasks.first
 	end
 
@@ -49,6 +48,17 @@ class TasksController < ApplicationController
 	    else
 	      render :edit
 	    end
+	end
+
+	def completed
+		@task.completed = true
+		@task.done_or_donated = "done"
+		@task.save
+
+		respond_to do |format|
+		  format.html {redirect_to user_path(@task.user.id)}
+		  format.json { render json: @task }
+		end
 	end
 
 	 def destroy

@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get '/account' => 'users#account'
 
+  post '/tasks/:id/complete' => 'tasks#completed'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
