@@ -1,7 +1,16 @@
-$blue: rgba(95, 122, 238, 1);
+#introduction {
+	h1 {
+		color: white;
+	}
+	img {
+		max-width: 100%;
+		margin-top: 30px;
+		margin-left: -5%;
+	}
+}
 
 #home-section {
-	background-color: $blue;
+	background-color: rgba(95, 122, 238, 1);
 	min-height: 30vh;
 	padding: 50px 0;
 	label {
@@ -11,26 +20,12 @@ $blue: rgba(95, 122, 238, 1);
 
 .set-task {
 	label {
-	font-size: 200%;
+	font-size: 150%;
 	}
 	input {
 	height: 60px;
 	font-size: 30px;
 	}
-}
-
-.set-deadline {
-	display: none;
-	max-width: 535px;
-}
-
-.set-bounty {
-	display: none;
-	max-width: 535px;
-}
-
-.create-task-btn {
-	display: none;
 }
 
 #homepage-create-task {
@@ -44,5 +39,35 @@ $blue: rgba(95, 122, 238, 1);
 	}
 	.date-picker-container {
 		position: relative;
+	}
+}
+
+
+#banner {
+	position: relative;
+	color: #fff;
+	text-shadow: 0 0 0.5px rgba(255,255,255,0.25);
+	text-align: center;
+	background: #35b88f image-url('banner.svg') bottom center no-repeat;
+	padding: 5em 0 5em 0;
+	margin: 0;
+	background-size: 125% auto;
+	.button {
+		color: #35b882;
+		text-shadow: 0 0 0.5px rgba(53,184,130,0.25);
+	}
+	header {
+		margin: 0 0 2em 0;
+		h2 {
+			font-weight: 400;
+			font-size: 2.25em;
+			letter-spacing: 5px;
+		}
+	}
+	p {
+		margin: 0;
+	}
+	footer {
+		margin: 2em 0 0 0;
 	}
 }

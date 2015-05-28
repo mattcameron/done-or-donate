@@ -1,11 +1,20 @@
 <section id="home-section">
   <div class="container">
+    <div class="row">
 
-    <div id="homepage-create-task">
-      <%= form_for @task do |f| %>
+
+      <div id="introduction" class="col-xs-6">
+        <h1>Doing stuff is hard</h1>
+        <h3>Sometimes you just need a little <em>motivation</em>.</h3>
+
+        <%= image_tag("how-it-works.png") %>
+      </div>
+
+      <div id="homepage-create-task" class="col-xs-5 col-xs-offset-1">
+        <%= form_for @task do |f| %>
 
         <div class="form-group set-task">
-          <%= f.label "I am going to" %><br>
+          <%= f.label "I am going to:" %><br>
           <%= f.text_field :title, class: "form-control" %>
         </div>
         <div class="form-group set-deadline date-picker-container">
@@ -26,11 +35,23 @@
         <div class="actions create-task-btn">
           <%= f.submit class: "btn btn-default" %>
         </div>
-      <% end %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </section>
 
 
 
-
+<section id="banner">
+  <header>
+    <h2>Put your money where your mouth is</h2>
+  </header>
+  <p>A brand new site template designed by <a href="http://n33.co">AJ</a> for <a href="http://html5up.net">HTML5 UP</a>.<br>
+    It’s fully responsive, built on <strong>skel</strong>, and of course entirely free<br>
+    under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+    <footer>
+      <a href="#first" class="button style2 scrolly">Act on this message</a>
+    </footer>
+  </section>
