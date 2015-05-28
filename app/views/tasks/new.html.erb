@@ -1,5 +1,49 @@
-<h1>New Task</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3">
 
-<%= render 'form' %>
+		<h1 class="text-center">New Task</h1>
 
-<%= link_to 'Back', tasks_path %>
+			<%= form_for(@task) do |f| %>
+			<% if @task.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+				<ul>
+					<% @task.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+			<% end %>
+
+			<div class="form-group-lg">
+				<%= f.label :task %><br>
+				<%= f.text_field :title, class: "form-control"  %>
+			</div>
+			<div class="form-group-lg">
+				<%= f.label "Add more details (optional)" %><br>
+				<%= f.text_area :description, class: "form-control"  %>
+			</div>
+			<div class="form-group-lg date-picker-container">
+				<%= f.label :due_date %><br>
+				<%= f.datetime_field :due_date, class: "form-control datetimepicker"  %>
+			</div>
+			<div class="form-group-lg">
+				<%= f.label :bounty %><br>
+				<select name="task[bounty]" id="task_bounty" class="form-control">
+					<option value="10">$10</option>
+					<option value="25">$25</option>
+					<option value="50">$50</option>
+					<option value="100">$100</option>
+					<option value="1000">$1000</option>
+				</select>
+			</div>
+			<div class="actions submit-form-btn">
+				<%= f.submit "Get it Done!", class: "btn btn-info" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+
+</div>

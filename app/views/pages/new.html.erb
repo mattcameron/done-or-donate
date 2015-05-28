@@ -1,18 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-4 col-xs-offset-4 login-form">
 
-<%= form_tag login_path do %>
+		<h1>Login</h1>
 
-		<div class="field">
-			<label for="email">Email</label>
-			<%= text_field_tag :email %>
+			<%= form_tag login_path do %>
+				<div class="field">
+					<label for="email">Email</label>
+					<%= text_field_tag :email, nil, class: "form-control" %>
+				</div>
+
+				<div class="field">
+					<label for="password">password</label>
+					<%= password_field_tag :password, nil, class: "form-control" %>
+				</div>
+
+				<div class="actions submit-form-btn">
+					<input class="btn btn-info" type="submit" value="Log In">
+				</div>
+			<% end %>
+
 		</div>
-
-		<div class="field">
-			<label for="password">password</label>
-			<%= password_field_tag :password %>
-		</div>
-
-		<div class="actions">
-			<input class="admin-btn" type="submit" value="Log In">
-		</div>
-<% end %>
+	</div>
+</div>
