@@ -9,7 +9,6 @@
 
 $(function () {
   $('.datetimepicker').datetimepicker({
-  		defaultDate: moment().add(7, 'days'),
   		minDate: moment(Date.today),
       sideBySide: true
   });

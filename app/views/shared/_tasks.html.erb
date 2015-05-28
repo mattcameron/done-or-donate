@@ -12,9 +12,9 @@
     <% @tasks.each do |task| %>
     <tr>
       <td><%= task.title %></td>
-      <td><%= task.due_date %></td>
+      <td><%= task.time_left %></td>
       <td>$<%= task.bounty %></td>
-      <td><button class="btn btn-default">Done!</button></td>
+      <td><button class="btn btn-default"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Mark as Done!</button></td>
     </tr>
     <% end %>
     <% else %>
