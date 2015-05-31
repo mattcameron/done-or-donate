@@ -17,10 +17,6 @@ class TasksController < ApplicationController
 	end
 
 	def create
-		# convert the due_date into the UTC equivalent of the user's timezone
-		edited_params = task_params
-		edited_params[:due_date] = DateTime.parse(edited_params[:due_date]) + params[:task_timezone_offset].to_i.minute
-
     @task = Task.new(edited_params)
     if logged_in?
 			@task.user_id = current_user.id
@@ -48,7 +44,7 @@ class TasksController < ApplicationController
 	end
 
 	def update
-	    if @task.update(task_params)
+	    if @task.update(edited_params)
 	      redirect_to current_user, notice: "Woohoo!! It's time to get cracking!"
 	    else
 	      render :edit
@@ -80,5 +76,12 @@ class TasksController < ApplicationController
 		# Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:title, :description, :due_date, :bounty)
+    end
+
+    def edited_params
+    	# convert the due_date into the UTC equivalent of the user's timezone
+			edited_params = task_params
+			edited_params[:due_date] = DateTime.parse(edited_params[:due_date]) + params[:task_timezone_offset].to_i.minute
+			edited_params
     end
 end

@@ -33,6 +33,10 @@
 				<div class="form-group-lg date-picker-container">
 					<%= f.label :due_date %><br>
 					<%= f.datetime_field :due_date, class: "form-control datetimepicker"  %>
+
+        <!-- Save user's timezone offset -->
+        <%= hidden_field_tag :task_timezone_offset %>
+
 				</div>
 				<div class="form-group-lg">
 					<%= f.label :bounty %><br>
