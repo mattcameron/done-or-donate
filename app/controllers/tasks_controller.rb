@@ -17,8 +17,10 @@ class TasksController < ApplicationController
 	end
 
 	def create
+		# convert the due_date into the UTC equivalent of the user's timezone
 		edited_params = task_params
-		edited_params[:due_date] = Date.strptime(edited_params[:due_date], '%m/%d/%Y %I:%M %p')
+		edited_params[:due_date] = DateTime.parse(edited_params[:due_date]) + params[:task_timezone_offset].to_i.minute
+
     @task = Task.new(edited_params)
     if logged_in?
 			@task.user_id = current_user.id
@@ -30,8 +32,10 @@ class TasksController < ApplicationController
 		end
 
     if @task.save && logged_in?
+    		# return to the user's account page
       	redirect_to user_path(current_user.id), notice: 'Task was successfully created.'
     elsif @task.save
+    		# make the user signup first
     		redirect_to "/signup/#{guest.id}", notice: "Almost there, sign up to save your task"
     else
 			render :new

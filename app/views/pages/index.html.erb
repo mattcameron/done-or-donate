@@ -19,6 +19,10 @@
           <%= f.label "by:" %><br>
           <%= f.datetime_field :due_date, class: "form-control datetimepicker" %>
         </div>
+
+        <!-- Save user's timezone offset -->
+        <%= hidden_field_tag :task_timezone_offset %>
+
         <div class="form-group set-bounty">
           <%= f.label "Or I will donate:" %><br>
           <select name="task[bounty]" id="task_bounty" class="form-control">
