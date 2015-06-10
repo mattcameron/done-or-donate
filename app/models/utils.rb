@@ -1,3 +1,5 @@
+# regular class to convert time to human readable for due date countdown
+
 class Utils
 
   def self.seconds_to_string(s)

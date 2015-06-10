@@ -16,6 +16,9 @@ class TasksController < ApplicationController
 	def edit
 	end
 
+
+# On the home page, if a user is not logged in, the task they create is assigned to a 'guest' user. We then update this task to their details once they have created an account.
+# If the user is already logged in, it is simply assigned to them.
 	def create
     @task = Task.new(edited_params)
     if logged_in?
@@ -27,7 +30,7 @@ class TasksController < ApplicationController
 			@task.user_id = guest.id
 		end
 
-    if @task.save && logged_in?
+    if logged_in? && @task.save
     		# return to the user's account page
       	redirect_to user_path(current_user.id), notice: 'Task was successfully created.'
     elsif @task.save
@@ -38,11 +41,15 @@ class TasksController < ApplicationController
     end
 	end
 
+
+# confirm task and add more details if necessary.
 	def confirm_task
 		@user = current_user
 		@task = @user.tasks.first
 	end
 
+
+# updates the task with any changes from the confirm_task page
 	def update
 	    if @task.update(edited_params)
 	      redirect_to current_user, notice: "Woohoo!! It's time to get cracking!"
@@ -51,11 +58,14 @@ class TasksController < ApplicationController
 	    end
 	end
 
+
+# Set the task as completed and mark it as 'done'
 	def completed
 		@task.completed = true
 		@task.done_or_donated = "done"
 		@task.save
 
+		# will soon be using AJAX to post completed tasks, and prevent page reload
 		respond_to do |format|
 		  format.html {redirect_to user_path(@task.user.id)}
 		  format.json { render json: @task }
