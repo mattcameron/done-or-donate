@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @guest = User.find(params[:id])
   end
 
   def create
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to '/users/#{params[:id]}/add-credit-card'
+      redirect_to "/users/#{@user.id}/add-credit-card"
     else
       render :new
     end
