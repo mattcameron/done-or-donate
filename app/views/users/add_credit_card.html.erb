@@ -9,27 +9,51 @@
 			</ul>
 
 			<div class="tab-content" id="create-account">
-				<%= form_tag"/users/#{params[:id]}/save-credit-card", method: :post do %>
-
-				<div class="form-group-lg">
-						<%= label_tag "Name on the card" %>
-					<%= text_field_tag :cc_name, nil, class: "form-control" %>
-				</div>
+				<%= form_tag "/users/#{params[:id]}/save-credit-card", method: :post do %>
 
 				<div class="form-group-lg">
 					<%= label_tag "Credit Card Number" %>
-					<%= text_field_tag :cc_number, nil, class: "form-control" %>
+					<%= text_field_tag :number, nil, class: "form-control", placeholder: "5353 1234 2234 3234" %>
 				</div>
 
 				<div class="form-group-lg form-inline cc-exp-ccv">
 					<%= label_tag "Expiry Date" %>
-					<%= text_field_tag :cc_expiry, nil, class: "form-control" %>
+					<%= text_field_tag :expiry_month, nil, class: "form-control", placeholder: "mm" %>
 
-				<div class="cc-exp-ccv pull-right">
-					<%= label_tag(:aapl, "CCV") %>
-					<%= text_field_tag :cc_ccv, nil, class: "form-control" %>
+					<%= label_tag "/" %>
+					<%= text_field_tag :expiry_year, nil, class: "form-control", placeholder: "yy" %>
+
+					<%= label_tag(:aapl, "CVC Security Code") %>
+					<%= text_field_tag :cvc, nil, class: "form-control", placeholder: "123" %>
 				</div>
-			</div>
+
+				<div class="form-group-lg">
+					<%= label_tag "Name on the card" %>
+					<%= text_field_tag :name, nil, class: "form-control", placeholder: "Bill Gates" %>
+				</div>
+
+				<div class="form-group-lg">
+					<%= label_tag "Address" %>
+					<%= text_field_tag :address_line1, nil, class: "form-control", placeholder: "123 Success Street" %>
+				</div>
+
+				<div class="form-group-lg">
+					<%= label_tag "City / Suburb" %>
+					<%= text_field_tag :address_city, nil, class: "form-control", placeholder: "Silicon Valley" %>
+				</div>
+
+				<div class="form-group-lg">
+					<%= label_tag "Country" %>
+					<%= render 'countrySelect' %>
+				</div>
+
+				<div class="form-group-lg form-inline cc-exp-ccv">
+					<%= label_tag "Postcode" %>
+					<%= text_field_tag :address_postcode, nil, class: "form-control", placeholder: "1234" %>
+
+					<%= label_tag "State" %>
+					<%= text_field_tag :address_state, nil, class: "form-control", placeholder: "California" %>
+				</div>
 
 				<div class="actions submit-form-btn">
 					<%= submit_tag nil, class: "btn btn-default" %>

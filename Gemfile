@@ -33,6 +33,9 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 
+# Pin Payment ruby interface from https://github.com/tigris/pin_payment
+gem 'pin_payment'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

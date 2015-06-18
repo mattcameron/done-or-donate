@@ -22,7 +22,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      # set the current user for this session
       session[:user_id] = @user.id
+
+      # continue on adding the task
       redirect_to "/users/#{@user.id}/add-credit-card"
     else
       render :new
@@ -40,7 +43,17 @@ class UsersController < ApplicationController
   end
 
   def save_credit_card
-    # Not connected yet
+
+    # first save the credit card
+    card = PinPayment::Card.create(card_params)
+
+
+
+    # save the customer in pin.net
+    customer = PinPayment::Customer.create( @user.email, card )
+
+    # store their customer token in the database
+    @user.customer_token = customer.token
 
     # theory as follows:
     # post to payment processor
@@ -81,5 +94,21 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :password)
+    end
+
+    def card_params
+      params.require(:card).permit(
+        :number,
+        :expiry_month,
+        :expiry_year,
+        :cvc,
+        :name,
+        :address_line1,
+        :address_city,
+        :address_postcode,
+        :address_state,
+        :address_country
+        )
+
     end
 end
