@@ -18,5 +18,6 @@
 <%= yield %>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= render :partial => 'shared/ga' if Rails.env == 'production' %>
 </body>
 </html>
