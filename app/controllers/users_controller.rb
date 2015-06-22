@@ -45,19 +45,25 @@ class UsersController < ApplicationController
   def save_credit_card
 
     # first save the credit card
-    card = PinPayment::Card.create(card_params)
+    card = PinPayment::Card.create(
+      number:           params[:number],
+      expiry_month:     params[:expiry_month],
+      expiry_year:      params[:expiry_year],
+      cvc:              params[:cvc],
+      name:             params[:name],
+      address_line1:    params[:address_line1],
+      address_city:     params[:address_city],
+      address_postcode: params[:address_postcode],
+      address_state:    params[:address_state],
+      address_country:  params[:address_country]
+    )
 
-
-
-    # save the customer in pin.net
+    # then save the customer in pin.net
     customer = PinPayment::Customer.create( @user.email, card )
 
-    # store their customer token in the database
-    @user.customer_token = customer.token
+    # then store their customer token in the database
+    @user.update_attribute(:customer_token, customer.token)
 
-    # theory as follows:
-    # post to payment processor
-    # save the credit card token to the user
     redirect_to "/users/#{@user.id}/confirm-task"
   end
 
@@ -94,21 +100,5 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :password)
-    end
-
-    def card_params
-      params.require(:card).permit(
-        :number,
-        :expiry_month,
-        :expiry_year,
-        :cvc,
-        :name,
-        :address_line1,
-        :address_city,
-        :address_postcode,
-        :address_state,
-        :address_country
-        )
-
     end
 end

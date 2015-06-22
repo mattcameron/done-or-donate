@@ -13,15 +13,40 @@
 
 				<div class="form-group-lg">
 					<%= label_tag "Credit Card Number" %>
-					<%= text_field_tag :number, nil, class: "form-control", placeholder: "5353 1234 2234 3234" %>
+					<%= text_field_tag :number, nil, class: "form-control", placeholder: "e.g. 5353 1234 1234 1234" %>
 				</div>
 
 				<div class="form-group-lg form-inline cc-exp-ccv">
 					<%= label_tag "Expiry Date" %>
-					<%= text_field_tag :expiry_month, nil, class: "form-control", placeholder: "mm" %>
+					<select name="expiry_month" class="form-control">
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>
 
 					<%= label_tag "/" %>
-					<%= text_field_tag :expiry_year, nil, class: "form-control", placeholder: "yy" %>
+					<select name="expiry_year" class="form-control">
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+						<option value="2021">2021</option>
+						<option value="2022">2022</option>
+						<option value="2023">2023</option>
+						<option value="2024">2024</option>
+						<option value="2025">2025</option>
+					</select>
 
 					<%= label_tag(:aapl, "CVC Security Code") %>
 					<%= text_field_tag :cvc, nil, class: "form-control", placeholder: "123" %>
