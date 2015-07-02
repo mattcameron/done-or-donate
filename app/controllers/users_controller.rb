@@ -43,19 +43,13 @@ class UsersController < ApplicationController
   end
 
   def save_credit_card
-
     # first save the credit card
     card = PinPayment::Card.create(
       number:           params[:number],
       expiry_month:     params[:expiry_month],
       expiry_year:      params[:expiry_year],
       cvc:              params[:cvc],
-      name:             params[:name],
-      address_line1:    params[:address_line1],
-      address_city:     params[:address_city],
-      address_postcode: params[:address_postcode],
-      address_state:    params[:address_state],
-      address_country:  params[:address_country]
+      name:             params[:name]
     )
 
     # then save the customer in pin.net

@@ -72,6 +72,18 @@ class TasksController < ApplicationController
 		end
 	end
 
+# Charge the credit card
+	def charge_credit_card
+    charge = PinPayment::Charge.create(
+      customer: @task.user.customer_token,
+      email: @task.user.email,
+      amount: @task,
+      currency: 'AUD',
+      description: "Failed task: #{@task.title}",
+      ip_address: request.remote_ip
+    )
+  end
+
 	 def destroy
     @task.destroy
       redirect_to tasks_url, notice: 'Task was successfully destroyed.'

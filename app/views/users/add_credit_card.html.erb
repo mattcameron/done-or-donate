@@ -57,30 +57,6 @@
 					<%= text_field_tag :name, nil, class: "form-control", placeholder: "Bill Gates" %>
 				</div>
 
-				<div class="form-group-lg">
-					<%= label_tag "Address" %>
-					<%= text_field_tag :address_line1, nil, class: "form-control", placeholder: "123 Success Street" %>
-				</div>
-
-				<div class="form-group-lg">
-					<%= label_tag "City / Suburb" %>
-					<%= text_field_tag :address_city, nil, class: "form-control", placeholder: "Silicon Valley" %>
-				</div>
-
-				<div class="form-group-lg">
-					<%= label_tag "Country" %>
-					<%= render 'countrySelect' %>
-				</div>
-
-				<div class="form-group-lg form-inline postcode-state">
-					<%= label_tag "State" %>
-					<%= text_field_tag :address_state, nil, class: "form-control", placeholder: "Victoria" %>
-
-					<span class="small-input">
-					<%= label_tag "Postcode" %>
-					<%= text_field_tag :address_postcode, nil, class: "form-control", placeholder: "1234" %>
-					</span>
-				</div>
 
 				<div class="actions submit-form-btn">
 					<%= submit_tag nil, class: "btn btn-default" %>
