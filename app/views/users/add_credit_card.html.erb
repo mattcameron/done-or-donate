@@ -72,12 +72,14 @@
 					<%= render 'countrySelect' %>
 				</div>
 
-				<div class="form-group-lg form-inline cc-exp-ccv">
+				<div class="form-group-lg form-inline postcode-state">
+					<%= label_tag "State" %>
+					<%= text_field_tag :address_state, nil, class: "form-control", placeholder: "Victoria" %>
+
+					<span class="small-input">
 					<%= label_tag "Postcode" %>
 					<%= text_field_tag :address_postcode, nil, class: "form-control", placeholder: "1234" %>
-
-					<%= label_tag "State" %>
-					<%= text_field_tag :address_state, nil, class: "form-control", placeholder: "California" %>
+					</span>
 				</div>
 
 				<div class="actions submit-form-btn">

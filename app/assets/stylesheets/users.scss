@@ -34,6 +34,25 @@
 	}
 }
 
+.postcode-state {
+	label {
+		margin-left: 10px;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+	input[type=text] {
+		max-width: 500px;
+		margin-top: 20px;
+	}
+
+	.small-input {
+		input[type=text] {
+			max-width: 100px;
+		}
+	}
+}
+
+
 .done {
 	background-color: #92f4a2!important;
 	color: rgb(25, 121, 169);
