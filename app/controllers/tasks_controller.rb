@@ -72,12 +72,12 @@ class TasksController < ApplicationController
 		end
 	end
 
-# Charge the credit card
+# Charge the credit card ##### UNFINISHED
 	def charge_credit_card
     charge = PinPayment::Charge.create(
       customer: @task.user.customer_token,
       email: @task.user.email,
-      amount: @task,
+      amount: @task.bounty,
       currency: 'AUD',
       description: "Failed task: #{@task.title}",
       ip_address: request.remote_ip
