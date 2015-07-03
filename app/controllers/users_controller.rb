@@ -22,7 +22,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      # set the current user for this session
       session[:user_id] = @user.id
+
+      # continue on adding the task
       redirect_to "/users/#{@user.id}/add-credit-card"
     else
       render :new
@@ -40,11 +43,21 @@ class UsersController < ApplicationController
   end
 
   def save_credit_card
-    # Not connected yet
+    # first save the credit card
+    card = PinPayment::Card.create(
+      number:           params[:number],
+      expiry_month:     params[:expiry_month],
+      expiry_year:      params[:expiry_year],
+      cvc:              params[:cvc],
+      name:             params[:name]
+    )
 
-    # theory as follows:
-    # post to payment processor
-    # save the credit card token to the user
+    # then save the customer in pin.net
+    customer = PinPayment::Customer.create( @user.email, card )
+
+    # then store their customer token in the database
+    @user.update_attribute(:customer_token, customer.token)
+
     redirect_to "/users/#{@user.id}/confirm-task"
   end
 

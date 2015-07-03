@@ -32,7 +32,7 @@
 				</div>
 				<div class="form-group-lg date-picker-container">
 					<%= f.label :due_date %><br>
-					<%= f.datetime_field :due_date, class: "form-control datetimepicker"  %>
+					<%= f.datetime_select :due_date, { class: "form-control datetimepicker" }  %>
 
         <!-- Save user's timezone offset -->
         <%= hidden_field_tag :task_timezone_offset %>
@@ -40,13 +40,7 @@
 				</div>
 				<div class="form-group-lg">
 					<%= f.label :bounty %><br>
-					<select name="task[bounty]" id="task_bounty" class="form-control">
-					  <option value="10">$10</option>
-					  <option value="25">$25</option>
-					  <option value="50">$50</option>
-					  <option value="100">$100</option>
-					  <option value="1000">$1000</option>
-					</select>
+					<%= f.select :bounty, [['$10', 10], ['$25', 25], ['$50', 50], ['$100', 100], ['$1000', 1000]], {}, class: "form-control"   %>
 				</div>
 				<div class="actions submit-form-btn">
 					<%= f.submit "Get it Done!", class: "btn btn-info" %>
