@@ -36,6 +36,9 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 # Pin Payment ruby interface from https://github.com/tigris/pin_payment
 gem 'pin_payment'
 
+# jQuery validation
+gem 'jquery-form-validator-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

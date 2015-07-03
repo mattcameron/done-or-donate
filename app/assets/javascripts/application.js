@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require moment
 //= require bootstrap-datetimepicker
+//= require jquery.form-validator
 //= require_tree .
