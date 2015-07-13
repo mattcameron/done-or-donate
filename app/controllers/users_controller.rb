@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :save_credit_card]
+  before_action :update_tasks, only: [:show, :account]
 
   # GET /users
   def index
@@ -118,5 +119,11 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :password)
+    end
+
+    def update_tasks
+      @user.tasks.each do |task|
+        task.update_finished_task
+      end
     end
 end

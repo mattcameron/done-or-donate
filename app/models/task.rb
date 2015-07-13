@@ -16,4 +16,12 @@ class Task < ActiveRecord::Base
 	def past_due_date?
 		self.due_date < Time.zone.now
 	end
+
+	def update_finished_task
+		if self.past_due_date? && self.completed != true
+			self.completed = true
+			self.done_or_donated = "donated"
+			self.save
+		end
+	end
 end
