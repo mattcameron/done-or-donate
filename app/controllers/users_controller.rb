@@ -69,7 +69,7 @@ class UsersController < ApplicationController
 
       redirect_to "/users/#{@user.id}/confirm-task"
     else
-      flash[:notice] = "Please enter valid credit card details"
+      flash.now[:notice] = "Please enter valid credit card details"
       render :add_credit_card
     end
   end
