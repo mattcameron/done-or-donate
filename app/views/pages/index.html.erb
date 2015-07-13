@@ -13,18 +13,21 @@
 
         <div class="form-group set-task">
           <%= f.label "I am going to:" %><br>
-          <%= f.text_field :title, class: "form-control", data: {
-            :validation => "required",
-            "validation-error-msg" => 'You forgot to add a task. - e.g. "Write a blog post"'
-          } %>
+          <%= f.text_field :title, class: "form-control" %>
         </div>
+
+        <% if @task.errors[:title].present? %>
+          <div id="error_message">You forgot to enter a task - e.g. "Write a blog post"</div>
+        <% end %>
+
         <div class="form-group set-deadline date-picker-container">
           <%= f.label "by:" %><br>
-          <%= f.datetime_field :due_date, class: "form-control datetimepicker", data: {
-            :validation => "required",
-            "validation-error-msg" => 'You need to set a due date for your task.'
-          }%>
+          <%= f.datetime_field :due_date, class: "form-control datetimepicker" %>
         </div>
+
+        <% if @task.errors[:due_date].present? %>
+          <div id="error_message">Please pick a due date for your task.</div>
+        <% end %>
 
         <!-- Save user's timezone offset -->
         <%= hidden_field_tag :task_timezone_offset %>

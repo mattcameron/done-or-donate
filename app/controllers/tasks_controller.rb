@@ -25,7 +25,8 @@ class TasksController < ApplicationController
 			@task.user_id = current_user.id
 		else
 			# create a guest user
-			guest = User.create name: "guest", email: "guest", password: "guest"
+			guest = User.new name: "guest", email: "guest", password: "guest"
+			guest.save(validate: false)
 			# assign the task to the guest
 			@task.user_id = guest.id
 		end
@@ -37,7 +38,7 @@ class TasksController < ApplicationController
     		# make the user signup first
     		redirect_to "/signup/#{guest.id}", notice: "Almost there, sign up to save your task"
     else
-			render :new
+			render "pages/index"
     end
 	end
 
@@ -103,7 +104,9 @@ class TasksController < ApplicationController
     def edited_params
     	# convert the due_date into the UTC equivalent of the user's timezone
 			edited_params = task_params
-			edited_params[:due_date] = DateTime.parse(edited_params[:due_date]) + params[:task_timezone_offset].to_i.minute
+			unless edited_params[:due_date].blank?
+				edited_params[:due_date] = DateTime.parse(edited_params[:due_date]) + params[:task_timezone_offset].to_i.minute
+			end
 			edited_params
     end
 end

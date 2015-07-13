@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get '/users/:id/add-credit-card' => 'users#add_credit_card'
   post '/users/:id/save-credit-card' => 'users#save_credit_card'
+  get '/users/:id/save-credit-card' => 'users#add_credit_card'
 
   get '/users/:id/confirm-task' => 'tasks#confirm_task'
 

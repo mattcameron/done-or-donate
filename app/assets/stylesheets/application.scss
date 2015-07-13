@@ -44,3 +44,14 @@ label {
 .form-group-lg.form-inline select.form-control {
 	vertical-align: bottom;
 }
+
+#error_message {
+	color: #F00;
+}
+
+.field_with_errors {
+	input {
+		border: 1px solid red;
+	}
+}
+

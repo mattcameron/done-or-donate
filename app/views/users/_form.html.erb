@@ -1,28 +1,30 @@
 <%= form_for @guest, url: "/convert-guest/#{params[:id]}", method: :put do |f| %>
 
   <div class="form-group-lg">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, value: "", class: "form-control", data: {
-      :validation => "required",
-      "validation-error-msg" => "What's your name?"
-    } %>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: "", class: "form-control" %>
   </div>
-  <div class="form-group-lg">
-    <%= f.label :email %><br>
-    <%= f.email_field :email, value: "", class: "form-control", data: {
-      :validation => "required email",
-      "validation-error-msg" => "Please enter a valid email address."
-    } %>
-  </div>
-  <div class="form-group-lg">
-    <%= f.label :password %><br>
-    <%= f.password_field :password, value: "", class: "form-control", data: {
-      :validation => "required validate_min_length length10",
-      "validation-error-msg" => "Your password should be 10 characters long - at the very least!"
-    } %>
-  </div>
+  <% if @guest.errors[:name].present? %>
+    <div id="error_message">What's your name?"</div>
+  <% end %>
 
-  <div class="actions create-user-btn">
+  <div class="form-group-lg">
+    <%= f.label :email %>
+    <%= f.email_field :email, value: "", class: "form-control" %>
+  </div>
+  <% if @guest.errors[:email].present? %>
+    <div id="error_message">What's your email address?"</div>
+  <% end %>
+
+  <div class="form-group-lg">
+    <%= f.label "Password (at least 12 characters)" %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <% if @guest.errors[:password].present? %>
+    <div id="error_message">Your password needs to be at least 12 characters long."</div>
+  <% end %>
+
+  <div class="actions submit-form-btn">
     <%= f.submit "Create Account", class: "btn btn-default" %>
   </div>
 <% end %>
