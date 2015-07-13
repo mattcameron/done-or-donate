@@ -8,21 +8,21 @@
 				<div class="overview-circle">
 					<%= @tasks.count %>
 				</div>
-				Current Tasks
+				Total Tasks
 			</div>
 
 			<div class="thirds col-sm-4 text-center" id="bounty-summary">
 				<div class="overview-circle">
-					$<%= @tasks.count %>
+					<%= @successful_tasks_count %>
 				</div>
-				Current Bounty
+				Successful tasks
 			</div>
 
 			<div class="thirds col-sm-4 text-center" id="done-vs-donate-summary">
 				<div class="overview-circle">
-					<%= @tasks.count %>
+					$<%= @donated_total %>
 				</div>
-				Tasks Done
+				Total Donated
 			</div>
 		</div>
 	</section>

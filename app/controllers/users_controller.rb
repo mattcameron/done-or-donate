@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @tasks = @user.tasks.order(:due_date)
+    @successful_tasks_count = @user.successful_tasks.count
+    @donated_total = @user.donated_tasks.sum(:bounty)
   end
 
   # signup form for converting guests to an actual user
