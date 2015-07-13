@@ -3,7 +3,7 @@
 	<p class="welcome">Welcome <%= @user.name %></p>
 
 	<ul>
-		<%= link_to user_path(@user) do %>
+		<%= link_to account_path do %>
 			<li>Overview</li></a>
 		<% end %>
 		<%= link_to tasks_path do %>

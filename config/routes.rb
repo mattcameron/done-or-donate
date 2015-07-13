@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'pages#destroy'
 
-  get '/account' => 'users#account'
+  get '/account' => 'users#show'
 
   post '/tasks/:id/complete' => 'tasks#completed'
 

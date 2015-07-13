@@ -27,10 +27,13 @@ body {
 
 .table
 	tbody
-		tr
+		tr {
+			border-top: 1px #fff solid;
 			td {
-				line-height: 50px
+				line-height: 50px;
+				border-top: none;
 			}
+		}
 
 label {
 	font-weight: inherit;

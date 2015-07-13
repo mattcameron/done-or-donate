@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     #check if we have @user and password is correct
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to account_path
     else
       # incorrect email or password
       redirect_to :back, notice: "Login was unsuccessful. Please try again."
