@@ -24,4 +24,8 @@ class Task < ActiveRecord::Base
 			self.save
 		end
 	end
+
+	def self.unpaid_tasks
+		self.where("completed = ? AND done_or_donated = ? AND paid != ?", true, "donated", true)
+	end
 end
