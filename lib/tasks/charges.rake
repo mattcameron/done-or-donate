@@ -1,4 +1,4 @@
-task :select_tasks => :environment do
+task :process_charges => :environment do
 	Task.unpaid_tasks.each do |task|
 
     charge = Charge.create(task_id: task.id, total_cents: task.bounty * 100)
@@ -7,7 +7,7 @@ task :select_tasks => :environment do
     payment = PinPayment::Charge.create(
       customer: task.user.customer_token,
       email: task.user.email,
-      amount: charge.total_cents
+      amount: charge.total_cents,
       currency: 'AUD',                       # hardcoded for now
       description: "Done or Donate failed task",
       ip_address: task.user.ip_address
