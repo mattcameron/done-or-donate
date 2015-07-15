@@ -4,6 +4,7 @@ class Task < ActiveRecord::Base
 	validates :bounty, presence: true
 
 	belongs_to :user
+	has_many :charges
 
 
 	def time_left
