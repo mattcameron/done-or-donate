@@ -25,7 +25,7 @@ class TasksController < ApplicationController
 			@task.user_id = current_user.id
 		else
 			# create a guest user
-			guest = User.new name: "guest", email: "guest", password: "guest"
+			guest = User.new name: "guest", email: "guest", password: "guest", ip_address: request.remote_ip
 			guest.save(validate: false)
 			# assign the task to the guest
 			@task.user_id = guest.id
