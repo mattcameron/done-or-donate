@@ -9,6 +9,11 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
+  get '/login' => 'pages#new'
+  post '/login' => 'pages#create'
+  delete '/logout' => 'pages#destroy'
+
+
   get '/signup/:id' => 'users#new'
   post '/signup' => 'users#create'
 
@@ -18,16 +23,12 @@ Rails.application.routes.draw do
   post '/users/:id/save-credit-card' => 'users#save_credit_card'
   get '/users/:id/save-credit-card' => 'users#add_credit_card'
 
-  get '/users/:id/confirm-task' => 'tasks#confirm_task'
-
-  get '/login' => 'pages#new'
-  post '/login' => 'pages#create'
-
-  delete '/logout' => 'pages#destroy'
-
   get '/account' => 'users#show'
 
+
+  get '/users/:id/confirm-task' => 'tasks#confirm_task'
   post '/tasks/:id/complete' => 'tasks#completed'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

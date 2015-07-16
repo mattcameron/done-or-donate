@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @guest = User.find(params[:id])
+    @guest = current_user
   end
 
   def create

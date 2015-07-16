@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  skip_before_filter :login_required
+
 	def index
 		@task = Task.new
     @task_count = Task.count

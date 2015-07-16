@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
 	before_action :set_task, only: [:show, :edit, :update, :destroy, :completed]
+	before_action :authenticate_user_owns_task, only: [:show, :edit]
 
 	def index
 		@user = current_user
@@ -108,5 +109,10 @@ class TasksController < ApplicationController
 				edited_params[:due_date] = DateTime.parse(edited_params[:due_date]) + params[:task_timezone_offset].to_i.minute
 			end
 			edited_params
+    end
+
+    def authenticate_user_owns_task
+    	task_ids = current_user.tasks.map { |task| task.id }
+    	redirect_to account_path unless task_ids.include?(params[:id].to_i)
     end
 end
