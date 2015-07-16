@@ -2,6 +2,10 @@ class PagesController < ApplicationController
 
 	def index
 		@task = Task.new
+    @task_count = Task.count
+    @success_count = Task.where(done_or_donated: "done").count
+    @donations = Charge.sum(:total_cents) / 100
+    @users = User.count
 	end
 
 	def signup

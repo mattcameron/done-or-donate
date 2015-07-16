@@ -96,25 +96,25 @@
     <div id="stats" class="row">
       <div class="col-xs-3 stats-block">
         <div class="glyphicon glyphicon-star-empty" aria-hidden="true"></div>
-        <div class="stats-number">45</div>
+        <div class="stats-number"><%= @task_count %></div>
         <div class="stats-caption">Tasks</div>
       </div>
 
       <div class="col-xs-3 stats-block">
         <div class="glyphicon glyphicon-ok-circle" aria-hidden="true"></div>
-        <div class="stats-number">37</div>
+        <div class="stats-number"> <%= @success_count %> </div>
         <div class="stats-caption">Completed successfully</div>
       </div>
 
       <div class="col-xs-3 stats-block">
         <div class="glyphicon glyphicon-usd" aria-hidden="true"></div>
-        <div class="stats-number">$5,250</div>
+        <div class="stats-number">$<%= @donations %></div>
         <div class="stats-caption">Donations</div>
       </div>
 
       <div class="col-xs-3 stats-block">
         <div class="glyphicon glyphicon-heart-empty" aria-hidden="true"></div>
-        <div class="stats-number">732</div>
+        <div class="stats-number"><%= @users %></div>
         <div class="stats-caption">Happy cats</div>
       </div>
 
