@@ -18,6 +18,10 @@ class PagesController < ApplicationController
 
 	end
 
+  def charities
+
+  end
+
 	#logging in
   def create
     @user = User.find_by(email: params[:email])

@@ -1,6 +1,6 @@
 <div id="sidebar">
 
-	<p class="welcome">Welcome <%= @user.name %></p>
+	<p class="welcome">Welcome <%= current_user.name %></p>
 
 	<ul>
 		<%= link_to account_path do %>
@@ -9,7 +9,9 @@
 		<%= link_to tasks_path do %>
 			<li>Tasks</li>
 		<% end %>
-		<a href="#"><li>Charities</li></a>
+		<%= link_to account_charities_path do %>
+			<li>Charities</li>
+		<% end %>
 		<a href="#"><li>Settings</li></a>
 	</ul>
 
