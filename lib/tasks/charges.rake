@@ -16,7 +16,7 @@ task :process_charges => :environment do
         email: task.user.email,
         amount: charge.total_cents,
         currency: 'AUD',                       # hardcoded for now
-        description: "Done or Donate failed task",
+        description: "Done or Donate failed task (#{task.id})",
         ip_address: task.user.ip_address
       )
 

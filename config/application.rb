@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module DoneOrDonate
   class Application < Rails::Application
+
+    # load figaro manually due to regression in Rails 4.2
+    Figaro.load
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

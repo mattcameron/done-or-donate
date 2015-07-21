@@ -39,6 +39,9 @@ gem 'pin_payment'
 # jQuery validation
 gem 'jquery-form-validator-rails'
 
+# storing environment variables
+gem 'figaro'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -11,4 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
-/config/initializers/pin_payment.rb
+# Ignore application configuration
+/config/application.yml
