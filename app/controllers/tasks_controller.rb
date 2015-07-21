@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 	before_action :set_task, only: [:show, :edit, :update, :destroy, :completed]
 	before_action :authenticate_user_owns_task, only: [:show, :edit]
+	skip_before_filter :login_required, only: :create
 
 	def index
 		@user = current_user

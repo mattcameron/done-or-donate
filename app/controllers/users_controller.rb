@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :save_credit_card]
   before_action :update_tasks, only: :show
+  skip_before_filter :login_required, only: [:new, :create, :convert_guest_to_user]
 
   # GET /users
   def index
