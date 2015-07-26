@@ -42,6 +42,9 @@ gem 'jquery-form-validator-rails'
 # storing environment variables
 gem 'figaro'
 
+# running cron tasks
+gem 'whenever', :require => false
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

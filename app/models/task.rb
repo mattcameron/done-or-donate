@@ -26,6 +26,12 @@ class Task < ActiveRecord::Base
 		end
 	end
 
+	def self.update_all_tasks
+		Task.all.each do |task|
+    	task.update_finished_task
+  	end
+	end
+
 	def self.unpaid_tasks
 		self.where("completed = ? AND done_or_donated = ? AND paid != ?", true, "donated", true)
 	end

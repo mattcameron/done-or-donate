@@ -1,10 +1,4 @@
-task :process_charges => :environment do
-
-  # first update all the Tasks.
-  Task.all.each do |task|
-    task.update_finished_task
-  end
-
+task :process_charges => [:environment, :update_tasks] do
 
   Task.unpaid_tasks.each do |task|
     charge = Charge.create(task_id: task.id, total_cents: task.bounty * 100)
@@ -29,7 +23,6 @@ task :process_charges => :environment do
       # and on the Charge
       charge.update(successful: true)
     end
-
 
     # else leave 'paid' and 'successful' as false
   end
