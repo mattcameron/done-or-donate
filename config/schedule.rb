@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :day, :at => '9:00am' do
-	rake "process_charges"
-end
+# every :day, :at => '9:00am' do
+# 	rake "process_charges"
+# end
