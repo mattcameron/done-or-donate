@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	validates :password, presence: true, length: { minimum: 12 }
 
 	has_many :tasks
+	belongs_to :charity
 
 	def successful_tasks
 		self.tasks.where(done_or_donated: "done")

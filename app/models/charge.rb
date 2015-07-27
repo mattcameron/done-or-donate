@@ -3,4 +3,5 @@ class Charge < ActiveRecord::Base
 	validates :total_cents, presence: true
 
 	belongs_to :task
+	belongs_to :charity
 end

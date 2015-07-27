@@ -1,7 +1,7 @@
 task :process_charges => [:environment, :update_tasks] do
 
   Task.unpaid_tasks.each do |task|
-    charge = Charge.create(task_id: task.id, total_cents: task.bounty * 100)
+    charge = Charge.create(task_id: task.id, total_cents: task.bounty * 100, charity_id: task.user.charity_id)
 
     begin
       # create a payment and new Charge record
