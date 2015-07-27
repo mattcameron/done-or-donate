@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get '/account' => 'users#show'
   get '/account/charities' => 'users#charities'
+  put '/set_charity/:id' => 'users#set_default_charity', as: :charity
 
 
   get '/users/:id/confirm-task' => 'tasks#confirm_task'

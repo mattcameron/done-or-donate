@@ -90,6 +90,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def set_default_charity
+    if current_user.update_attribute(:charity_id, params[:id])
+      redirect_to account_path, notice: "Your default charity is now #{Charity.find(params[:id]).name}"
+    else
+      redirect_to root_path
+    end
+  end
+
 
   def update
     if @user.update(user_params)
